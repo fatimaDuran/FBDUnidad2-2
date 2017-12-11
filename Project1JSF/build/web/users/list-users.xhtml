@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"      
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+        <h:head>
+             <title>#{str.userListTitle}</title>
+        </h:head>
+
+        <h:body>
+            <ui:composition template="/templates/template.xhtml">
+                <ui:define name="content">
+                    <h5>#{str.userListTitle}</h5>
+                    <b:form>
+                        <b:commandButton value="#{str.buttonAdd}" action="#{userBean.start()}" look="primary"  style="width:200px"/>
+                    </b:form>
+                    <b:dataTable value="#{userBean.users}" var="u">
+                        <b:dataTableColumn label="#{str.action}">
+                            <h:form>
+                                <b:commandButton  look="success" value="#{str.buttonEdit}" action="#{userBean.edit(u)}" />
+                            </h:form>
+                        </b:dataTableColumn>
+                        <b:dataTableColumn label="#{str.userNameHeader}">
+                            <p:outputLabel value="#{u.userName}"/>
+                        </b:dataTableColumn>
+                        <b:dataTableColumn label="#{str.passwordHeader}">
+                            <p:outputLabel value="#{u.password}"/>
+                        </b:dataTableColumn>
+                        <b:dataTableColumn label="#{str.roleNameHeader}">
+                            <p:outputLabel value="#{u.role.roleName}"/>
+                        </b:dataTableColumn>
+                    </b:dataTable>
+                </ui:define>
+            </ui:composition>
+        </h:body>
+</html>

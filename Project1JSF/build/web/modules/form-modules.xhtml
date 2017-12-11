@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"      
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+    
+    <h:head>
+        <title>#{str.moduleFormTitle}</title>
+    </h:head>
+    
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="content">
+                <h5>#{str.moduleFormHeader}</h5>
+                <b:panel look="primary" title="#{str.moduleLegendForm}">
+                    <b:form>
+                        <b:panelGrid columns="1">
+                        <b:inputText placeholder="#{str.moduleNamePrompt}" value="#{moduleBean.module.moduleName}" style="width:400px"></b:inputText>
+                        <b:inputText placeholder="#{str.modulePathPrompt}" value="#{moduleBean.module.route}" style="width:400px"></b:inputText>
+                        <b:commandButton look="success" value="#{str.buttonSave}" action="#{moduleBean.save()}" style="width:120px"></b:commandButton>
+                        <b:commandButton look="danger" value="#{str.buttonDelete}" action="#{moduleBean.delete()}" style="width:120px"></b:commandButton>
+                        <b:commandButton look="info" value="#{str.buttonCancel}" action="#{moduleBean.cancel()}" style="width:120px"></b:commandButton>
+                        </b:panelGrid>
+                    </b:form>
+                </b:panel>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

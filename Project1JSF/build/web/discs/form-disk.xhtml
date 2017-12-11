@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{str.diskFormTitle}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="content">
+                <h2>#{str.diskFormHeader}</h2>
+                <p:fieldset legend="#{str.diskLegendForm}">
+                <h:form>
+                    <h:panelGrid columns="1">
+                    <p:inputText placeholder="#{str.diskNamePrompt}" value="#{diskBean.disk.name}"></p:inputText>
+                    
+                       <p:inputText placeholder="#{str.categoryPrompt}" value="#{diskBean.disk.category}"></p:inputText>
+                           <p:inputText placeholder="#{str.levelPrompt}" value="#{diskBean.disk.level}"></p:inputText>
+                    </h:panelGrid>
+                    <p:commandButton value="#{str.buttonSave}" action="#{diskBean.save()}"></p:commandButton>
+                    <p:commandButton value="#{str.buttonDelete}" action="#{diskBean.delete()}"></p:commandButton>
+                    <p:commandButton value="#{str.buttonCancel}" action="#{diskBean.cancel()}"></p:commandButton>
+                
+                </h:form>
+                </p:fieldset>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
